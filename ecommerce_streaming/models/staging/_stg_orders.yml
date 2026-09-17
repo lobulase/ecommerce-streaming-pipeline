@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: Cleaned order lifecycle events from the raw Pub/Sub stream
+    columns:
+      - name: order_id
+        description: Unique identifier for the order
+        tests:
+          - not_null
+      - name: event_type
+        description: Stage in the order lifecycle
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['order_placed', 'payment_confirmed', 'shipped', 'delivered']
+      - name: event_timestamp
+        tests:
+          - not_null
+      - name: quantity
+        tests:
+          - not_null
+      - name: order_total
+        tests:
+          - not_null

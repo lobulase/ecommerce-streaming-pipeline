@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: ecommerce_streaming
+    database: f1-pipeline-497820
+    schema: ecommerce_streaming
+    tables:
+      - name: orders_raw
+        description: Raw order lifecycle events streamed from Pub/Sub via the Python subscriber

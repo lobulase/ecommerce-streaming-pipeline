@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: fct_daily_order_funnel
+    description: Daily counts and order value by event type, forming the order lifecycle funnel
+    columns:
+      - name: event_date
+        tests:
+          - not_null
+      - name: event_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['order_placed', 'payment_confirmed', 'shipped', 'delivered']
+      - name: event_count
+        tests:
+          - not_null

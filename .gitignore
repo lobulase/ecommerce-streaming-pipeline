@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 .DS_Store
 generator_test.log
+logs/
+ecommerce_streaming/target/
+ecommerce_streaming/dbt_packages/
+ecommerce_streaming/logs/
